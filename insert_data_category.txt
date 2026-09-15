@@ -1,0 +1,12 @@
+insert into category values('C01','Mac','The most advanced Mac laptops for workflows.');
+insert into category values('C02','iPad','Serious performance in a thin and light design.');
+insert into category values('C03','iPhone','Innovative design for ultimate performance.');
+insert into category values('C04','Apple Watch','The ultimate way to watch your health.');
+insert into category values('C05','Apple Watch Straps','Apple Watch bands and straps');
+insert into category values('C06','AirPods','The world’s best in-ear Active Noise Cancellation.');
+insert into category values('C07','TV_Home','The Apple experience and cinematic in every sense.');
+insert into category values('C08','Cases_Protection','Cases and protective accessories');
+insert into category values('C09','Charging Essentials','Charging cables and power accessories.');
+insert into category values('C10','AirTag_Accessories','AirTag and related accessories');
+insert into category values('C11','Apple Pencil','Perfect for marking up and taking notes.');
+

@@ -1,0 +1,59 @@
+
+insert into product values('P001','MacBook Air','C01',4499.00,'01-NOV-2024');
+insert into product values('P002','MacBook Pro','C01',6999.00,'15-DEC-2024');
+insert into product values('P003','iMac','C01',5799.00,'22-JAN-2025');
+insert into product values('P004','Mac mini','C01',2499.00,'08-MAY-2025');
+insert into product values('P005','Mac Studio','C01',8999.00,'17-AUG-2025');
+
+insert into product values('PB01','iPad Pro','C02',4499.00,'03-DEC-2024');
+insert into product values('PB02','iPad Air','C02',2799.00,'12-MAR-2025');
+insert into product values('PB03','iPad','C02',1599.00,'28-AUG-2025');
+insert into product values('PB04','iPad Mini','C02',2199.00,'05-NOV-2025');
+
+insert into product values('PC01','iPhone 17 Pro','C03',5499.00,'07-DEC-2024');
+insert into product values('PC02','iPhone Air','C03',4999.00,'15-MAR-2025');
+insert into product values('PC03','iPhone 17','C03',3999.00,'22-AUG-2025');
+insert into product values('PC04','iPhone 16','C03',3499.00,'11-NOV-2025');
+insert into product values('PC05','iPhone 16e','C03',2999.00,'28-DEC-2025');
+
+insert into product values('PD01','Apple Watch Series 11','C03',1799.99,'17-DEC-2024');
+insert into product values('PD02','Apple Watch SE 3','C03',1049.99,'05-MAY-2025');
+insert into product values('PD03','Apple Watch Ultra 3','C03',3699.99,'28-NOV-2025');
+
+insert into product values('PE01','Anchor Blue Sport Band','C05',199.99,'12-DEC-2024');
+insert into product values('PE02','Purple Fog Sport Band','C05',199.99,'03-APR-2025');
+insert into product values('PE03','Starlight Sport Band','C05',199.99,'25-AUG-2025');
+insert into product values('PE04','Light Blush Sport Band','C05',199.99,'09-NOV-2025');
+insert into product values('PE05','Stone Grey Sport Band','C05',199.99,'18-JAN-2025');
+insert into product values('PE06','Black Sport Band','C05',199.99,'30-DEC-2025');
+
+insert into product values('PF01','AirPods 4','C06',599.99,'14-DEC-2024');
+insert into product values('PF02','AirPods 4 ANC','C06',829.99,'22-MAR-2025');
+insert into product values('PF03','AirPods Pro 3','C06',999.99,'06-AUG-2025');
+insert into product values('PF04','AirPods Max','C06',2499.99,'30-NOV-2025');
+
+insert into product values('PG01','HomePod','C07',1549.99,'07-FEB-2025');
+insert into product values('PG02','HomePod Mini','C07',529.99,'19-AUG-2025');
+insert into product values('PG03','Apple TV 4K','C07',699.99,'28-DEC-2024');
+
+insert into product values('PH01','TechWoven Case with MagSafe – Sienna','C08',299.99,'14-DEC-2024');
+insert into product values('PH02','TechWoven Case with MagSafe – Green','C08',299.99,'27-JAN-2025');
+insert into product values('PH03','Silicone Case with MagSafe – Midnight','C08',239.99,'05-MAR-2025');
+insert into product values('PH04','Silicone Case with MagSafe – Orange','C08',239.99,'22-JUL-2025');
+insert into product values('PH05','Clear Case with MagSafe','C08',239.99,'09-NOV-2025');
+insert into product values('PH06','iPhone Air Bumper - Light Blue','C08',169.99,'15-NOV-2025');
+
+insert into product values('PJ01','30W USB-C Power Adapter','C09',159.99,'14-DEC-2024');
+insert into product values('PJ02','Anker Charger (150W, 4 Port)','C09',469.99,'08-MAR-2025');
+insert into product values('PJ03','Nimble Wally Stretch 65W Wall Charger','C09',279.99,'27-JUL-2025');
+insert into product values('PJ04','2-in-1 Magnetic Foldable Charger – Teal','C09',349.99,'02-NOV-2025');
+insert into product values('PJ05','2-in-1 Magnetic Charging Travel Pad','C09',599.99,'19-JAN-2025');
+insert into product values('PJ06','3-in-1 Magnetic Charging Stand','C09',749.99,'05-DEC-2025');
+
+insert into product values('PK01','AirTag FineWoven Key Ring - Fox Orange','C10',199.99,'14-MAR-2025');
+insert into product values('PK02','AirTag','C10',139.99,'08-SEP-2025');
+insert into product values('PK03','AirTag 4 pack','C10',449.99,'27-DEC-2024');
+
+insert into product values('PL01','Apple Pencil Pro','C11',549.99,'14-DEC-2024');
+insert into product values('PL02','Apple Pencil USB-C','C11',349.99,'07-JUL-2025');
+
