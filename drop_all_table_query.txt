@@ -1,0 +1,9 @@
+drop table customer cascade constraints
+drop table department cascade constraints;
+drop table staff cascade constraints;
+drop table category cascade constraints;
+drop table product cascade constraints;
+drop table orders cascade constraints;
+drop table orders_list cascade constraints;
+drop table payment cascade constraints;
+drop table inventory cascade constraints;
