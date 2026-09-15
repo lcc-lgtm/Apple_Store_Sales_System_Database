@@ -1,0 +1,56 @@
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTE
+TTITLE OFF
+
+SET LINESIZE 120
+SET PAGESIZE 100
+
+cl scr
+
+ACCEPT target_month CHAR PROMPT 'Enter Target Month and Year (e.g., NOV-2024): '
+
+cl scr
+
+TTITLE CENTER 'STAFF MONTHLY PERFORMANCE REPORT FOR &target_month' SKIP 1 CENTER '=====================================================================================' SKIP 2
+
+cl scr
+
+COLUMN staff_id       FORMAT A10          HEADING 'Staff ID'
+COLUMN staff_name     FORMAT A25          HEADING 'Staff Name'
+COLUMN staff_role     FORMAT A20          HEADING 'Role'
+COLUMN orders_handled FORMAT 999          HEADING 'Orders|Handled'
+COLUMN items_sold     FORMAT 99,999       HEADING 'Items|Sold'
+COLUMN monthly_sales  FORMAT $999,999.99  HEADING 'Total Sales'
+
+BREAK ON REPORT
+COMPUTE SUM LABEL 'Overall Total:' OF monthly_sales ON REPORT
+COMPUTE SUM LABEL 'Total Items:' OF items_sold ON REPORT
+
+cl scr
+
+SELECT 
+    s.staff_id,
+    s.staff_name,
+    s.staff_role,
+    COUNT(DISTINCT o.orders_id) AS orders_handled,
+    NVL(SUM(ol.quantity), 0) AS items_sold,
+    NVL(SUM(ol.sub_total), 0) AS monthly_sales
+FROM 
+    staff s
+LEFT JOIN orders o ON s.staff_id = o.staff_id 
+    AND TO_CHAR(o.orders_date, 'MON-YYYY') = UPPER('&target_month')
+LEFT JOIN orders_list ol ON o.orders_id = ol.orders_id
+LEFT JOIN payment py ON o.orders_id = py.order_id AND py.status = 'Success'
+WHERE 
+    s.staff_role = 'Salesperson'
+GROUP BY 
+    s.staff_id,
+    s.staff_name,
+    s.staff_role
+ORDER BY 
+    monthly_sales DESC;
+
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES

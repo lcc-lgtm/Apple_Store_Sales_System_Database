@@ -1,0 +1,54 @@
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTE
+TTITLE OFF
+
+SET LINESIZE 120
+SET PAGESIZE 100
+
+cl scr
+
+TTITLE CENTER 'APPLE STORE - CATEGORY PERFORMANCE & REVENUE SHARE' SKIP 1 CENTER '=====================================================================================' SKIP 2
+
+cl scr
+
+COLUMN category_name   FORMAT A25          HEADING 'Category Name'
+COLUMN prod_count      FORMAT 999          HEADING 'Models'
+COLUMN total_units     FORMAT 99,999       HEADING 'Units Sold'
+COLUMN category_sales  FORMAT $999,999.99  HEADING 'Category Revenue'
+COLUMN sales_share     FORMAT 999.99       HEADING 'Share (%)'
+
+BREAK ON REPORT
+COMPUTE SUM LABEL 'Total Store:' OF category_sales ON REPORT
+COMPUTE SUM LABEL 'Total Units:' OF total_units ON REPORT
+
+cl scr
+
+SELECT 
+    c.category_name,
+    COUNT(DISTINCT p.product_id) AS prod_count,
+    NVL(SUM(ol.quantity), 0) AS total_units,
+    NVL(SUM(ol.sub_total), 0) AS category_sales,
+    ROUND(
+        (NVL(SUM(ol.sub_total), 0) / 
+            NULLIF((SELECT SUM(sub_total) FROM orders_list ol_inner 
+                    JOIN orders o_inner ON ol_inner.orders_id = o_inner.orders_id
+                    JOIN payment py_inner ON o_inner.orders_id = py_inner.order_id
+                    WHERE py_inner.status = 'Success'), 0)
+        ) * 100, 2
+    ) AS sales_share
+FROM 
+    category c
+LEFT JOIN product p ON c.category_id = p.category_id
+LEFT JOIN orders_list ol ON p.product_id = ol.product_id
+LEFT JOIN orders o ON ol.orders_id = o.orders_id
+LEFT JOIN payment py ON o.orders_id = py.order_id AND py.status = 'Success'
+GROUP BY 
+    c.category_id,
+    c.category_name
+ORDER BY 
+    category_sales DESC;
+
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES

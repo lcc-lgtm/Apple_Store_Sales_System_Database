@@ -1,0 +1,59 @@
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTE
+TTITLE OFF
+
+SET LINESIZE 130
+SET PAGESIZE 100
+
+cl scr
+
+ACCEPT start_date PROMPT 'Enter Start Date (DD/MM/YYYY): '
+ACCEPT end_date PROMPT 'Enter End Date (DD/MM/YYYY): '
+
+cl scr
+
+TTITLE CENTER 'UNPAID OR FAILED PAYMENT ORDERS - FOLLOW-UP REPORT' SKIP 1 CENTER '=====================================================================================================' SKIP 2
+
+cl scr
+
+COLUMN order_id     FORMAT 999999999   HEADING 'Order ID'
+COLUMN customer     FORMAT A22         HEADING 'Customer Name' TRUNC
+COLUMN cust_phone   FORMAT A15         HEADING 'Phone'
+COLUMN cust_email   FORMAT A30         HEADING 'Email'
+COLUMN order_date   FORMAT A10         HEADING 'Order Date'
+COLUMN total_amount FORMAT $999,999.99 HEADING 'Order Amount'
+COLUMN pay_status   FORMAT A15         HEADING 'Payment Status'
+
+BREAK ON REPORT
+COMPUTE SUM LABEL 'Total Unpaid Amount:' OF total_amount ON REPORT
+
+cl scr
+
+SELECT 
+    o.orders_id AS order_id,
+    c.first_name || ' ' || c.last_name AS customer,
+    NVL(c.cust_phone, 'N/A') AS cust_phone,
+    NVL(c.cust_email, 'N/A') AS cust_email,
+    TO_CHAR(o.orders_date, 'DD/MM/YYYY') AS order_date,
+    NVL(
+        (SELECT SUM(ol.sub_total) 
+         FROM orders_list ol 
+         WHERE ol.orders_id = o.orders_id), 
+        0
+    ) AS total_amount,
+    NVL(p.status, 'NO PAYMENT') AS pay_status
+FROM 
+    orders o
+JOIN customer c ON o.cust_id = c.cust_id
+LEFT JOIN payment p ON o.orders_id = p.order_id
+WHERE 
+    (p.status = 'FailPayment' OR p.status IS NULL)
+    AND o.orders_date BETWEEN TO_DATE('&start_date', 'DD/MM/YYYY')
+                          AND TO_DATE('&end_date', 'DD/MM/YYYY')
+ORDER BY 
+    o.orders_date ASC;
+
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES

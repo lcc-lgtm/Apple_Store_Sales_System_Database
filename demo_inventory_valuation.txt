@@ -1,0 +1,42 @@
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTE
+TTITLE OFF
+
+SET LINESIZE 120
+SET PAGESIZE 100
+
+cl scr
+
+TTITLE CENTER 'APPLE STORE - INVENTORY VALUATION & CAPITAL OCCUPATION' SKIP 1 CENTER '=====================================================================================' SKIP 2
+
+cl scr
+
+COLUMN product_id         FORMAT A12         HEADING 'Product ID'
+COLUMN product_name       FORMAT A35         HEADING 'Product Name'
+COLUMN price              FORMAT $999,999.99 HEADING 'Unit Price'
+COLUMN stock_quantity     FORMAT 99,999      HEADING 'Stock Qty'
+COLUMN inventory_val      FORMAT $999,999.99 HEADING 'Inventory Value'
+COLUMN last_restock_date  FORMAT A15         HEADING 'Restock Date'
+
+BREAK ON REPORT
+COMPUTE SUM LABEL 'Total Warehouse Asset:' OF inventory_val ON REPORT
+
+cl scr
+
+SELECT 
+    p.product_id,
+    p.product_name,
+    p.price,
+    i.stock_quantity,
+    (p.price * i.stock_quantity) AS inventory_val,
+    i.last_restock_date
+FROM 
+    inventory i
+JOIN product p ON i.product_id = p.product_id
+ORDER BY 
+    inventory_val DESC;
+
+CLEAR COLUMNS
+CLEAR BREAKS
+CLEAR COMPUTES
