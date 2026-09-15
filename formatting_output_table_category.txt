@@ -1,0 +1,7 @@
+set linesize 150
+set pagesize 300
+cl scr
+
+COLUMN category_id FORMAT 'A15' HEADING 'CATEGORY ID'
+COLUMN category_name FORMAT 'A20' HEADING 'CATEGORY NAME'
+COLUMN category_desc FORMAT 'A60' HEADING 'CATEGORY DESCRIPTION'
