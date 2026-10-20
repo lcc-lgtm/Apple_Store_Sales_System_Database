@@ -6,10 +6,10 @@ A complete database application project developed for **Database Development & A
 
 ## Project Structure
 
-* **`ddl/`**: Core table creation and constraint definitions (`customer`, `department`, `staff`, `category`, `product`, `orders`, `orders_list`, `payment`, `inventory`).
-* **`data/`**: Initial testing datasets and record insert scripts.
-* **`format/`**: SQL*Plus column formatting and layout configuration scripts.
-* **`queries/`**: Advanced analytical business reports and interactive views (sales performance, inventory thresholds, payment audits, and customer spending rank).
+- **`ddl/`**: Table creation scripts (`customer`, `department`, `staff`, `category`, `product`, `orders`, `orders_list`, `payment`, `inventory`) and a script to drop all tables.
+- **`insert_data/`**: Sample data insert scripts.
+- **`format/`**: SQL*Plus column formatting and layout scripts.
+- **`queries/`**: Analytical report scripts (category performance, inventory thresholds, payment status, top-spending customers, staff performance).
 
 ---
 
@@ -23,10 +23,10 @@ The relational schema models core retail operations:
 
 ---
 
-## Getting Started
+## Getting Started Steps
 
-1. Connect to your Oracle database instance via SQL*Plus or SQL Developer.
-2. Execute the table cleanup script (`drop_all_table_query.txt`).
-3. Run the DDL scripts to set up the relational schema.
-4. Import the provided test data (`insert_data_*.txt`).
-5. Run formatting scripts and analytical queries for report generation.
+1. Open SQL*Plus or SQL Developer, connect to Oracle instance, and start from the repository root.
+2. Drop existing tables: `@ddl/drop_all_table_query.sql`
+3. Create tables (parent tables before child tables, e.g. `orders` before `orders_list`): `@ddl/create_table_ui_*.sql`
+4. Load sample data: `@insert_data/insert_data_*.sql`
+5. Apply formatting and run reports: `@format/...` then `@queries/demo_*.sql`
