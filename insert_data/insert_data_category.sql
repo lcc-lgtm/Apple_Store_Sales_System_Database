@@ -3,7 +3,7 @@ insert into category values('C02','iPad','Serious performance in a thin and ligh
 insert into category values('C03','iPhone','Innovative design for ultimate performance.');
 insert into category values('C04','Apple Watch','The ultimate way to watch your health.');
 insert into category values('C05','Apple Watch Straps','Apple Watch bands and straps');
-insert into category values('C06','AirPods','The world’s best in-ear Active Noise Cancellation.');
+insert into category values('C06','AirPods','The worldâ€™s best in-ear Active Noise Cancellation.');
 insert into category values('C07','TV_Home','The Apple experience and cinematic in every sense.');
 insert into category values('C08','Cases_Protection','Cases and protective accessories');
 insert into category values('C09','Charging Essentials','Charging cables and power accessories.');
