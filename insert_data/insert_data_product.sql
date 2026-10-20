@@ -36,17 +36,17 @@ insert into product values('PG01','HomePod','C07',1549.99,'07-FEB-2025');
 insert into product values('PG02','HomePod Mini','C07',529.99,'19-AUG-2025');
 insert into product values('PG03','Apple TV 4K','C07',699.99,'28-DEC-2024');
 
-insert into product values('PH01','TechWoven Case with MagSafe – Sienna','C08',299.99,'14-DEC-2024');
-insert into product values('PH02','TechWoven Case with MagSafe – Green','C08',299.99,'27-JAN-2025');
-insert into product values('PH03','Silicone Case with MagSafe – Midnight','C08',239.99,'05-MAR-2025');
-insert into product values('PH04','Silicone Case with MagSafe – Orange','C08',239.99,'22-JUL-2025');
+insert into product values('PH01','TechWoven Case with MagSafe â€“ Sienna','C08',299.99,'14-DEC-2024');
+insert into product values('PH02','TechWoven Case with MagSafe â€“ Green','C08',299.99,'27-JAN-2025');
+insert into product values('PH03','Silicone Case with MagSafe â€“ Midnight','C08',239.99,'05-MAR-2025');
+insert into product values('PH04','Silicone Case with MagSafe â€“ Orange','C08',239.99,'22-JUL-2025');
 insert into product values('PH05','Clear Case with MagSafe','C08',239.99,'09-NOV-2025');
 insert into product values('PH06','iPhone Air Bumper - Light Blue','C08',169.99,'15-NOV-2025');
 
 insert into product values('PJ01','30W USB-C Power Adapter','C09',159.99,'14-DEC-2024');
 insert into product values('PJ02','Anker Charger (150W, 4 Port)','C09',469.99,'08-MAR-2025');
 insert into product values('PJ03','Nimble Wally Stretch 65W Wall Charger','C09',279.99,'27-JUL-2025');
-insert into product values('PJ04','2-in-1 Magnetic Foldable Charger – Teal','C09',349.99,'02-NOV-2025');
+insert into product values('PJ04','2-in-1 Magnetic Foldable Charger â€“ Teal','C09',349.99,'02-NOV-2025');
 insert into product values('PJ05','2-in-1 Magnetic Charging Travel Pad','C09',599.99,'19-JAN-2025');
 insert into product values('PJ06','3-in-1 Magnetic Charging Stand','C09',749.99,'05-DEC-2025');
 
